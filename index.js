@@ -3,8 +3,10 @@ const connectDB = require("./db/db.connect")
 
 const product = require("./routes/product.routes")
 const category = require('./routes/category.routes')
+const auth = require('./routes/auth.routes')
 
 const app = express()
+app.use(express.json())
 connectDB()
 
 app.get("/", (req,res) => {
@@ -14,6 +16,7 @@ app.get("/", (req,res) => {
 // routes middleware
 app.use("/products", product)
 app.use("/categories", category)
+app.use("/", auth)
 
 app.listen(8000, () => {
     console.log("server started")
