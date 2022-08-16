@@ -1,5 +1,6 @@
 const express = require("express")
 const connectDB = require("./db/db.connect")
+const pageNotFound = require("./middleware/pageNotFound")
 
 const product = require("./routes/product.routes")
 const category = require('./routes/category.routes')
@@ -17,6 +18,8 @@ app.get("/", (req,res) => {
 app.use("/products", product)
 app.use("/categories", category)
 app.use("/", auth)
+
+app.use(pageNotFound)
 
 app.listen(8000, () => {
     console.log("server started")
