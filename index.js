@@ -5,6 +5,7 @@ const pageNotFound = require("./middleware/pageNotFound")
 const product = require("./routes/product.routes")
 const category = require('./routes/category.routes')
 const auth = require('./routes/auth.routes')
+const cart = require('./routes/cart.routes')
 
 const app = express()
 app.use(express.json())
@@ -18,6 +19,7 @@ app.get("/", (req,res) => {
 app.use("/products", product)
 app.use("/categories", category)
 app.use("/", auth)
+app.use("/cart", cart)
 
 app.use(pageNotFound)
 
