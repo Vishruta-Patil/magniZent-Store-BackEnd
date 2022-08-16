@@ -35,7 +35,7 @@ exports.addToCart = async(req,res) => {
 }
 
 
-// @desc    Delete Remove Product to Cart
+// @desc    Delete Remove Product from Cart
 // @route   DELETE api/cart/:productId
 // @access  Private
 exports.removeFromCart = async(req,res) => {
