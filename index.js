@@ -12,6 +12,8 @@ const app = express()
 app.use(express.json())
 connectDB()
 
+const port = process.env.PORT || 8000
+
 app.get("/", (req,res) => {
     res.send("Shree Krishna Govinda Hari Murari Yaenatha Narayan Vasudeva Radhae Radhae")
 })
@@ -25,6 +27,6 @@ app.use("/wishlist", wishlist)
 
 app.use(pageNotFound)
 
-app.listen(8000, () => {
+app.listen(port, () => {
     console.log("server started")
 })
