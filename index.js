@@ -8,11 +8,7 @@ const category = require('./routes/category.routes')
 const auth = require('./routes/auth.routes')
 const cart = require('./routes/cart.routes')
 const wishlist = require('./routes/wishlist.routes')
-
-const corsOptions = {
-    origin: process.env.PORT,
-    optionsSuccessStatus: 200
-}
+const corsOptions = require("./utils/corsConfig")
 
 const app = express()
 app.use(express.json())
