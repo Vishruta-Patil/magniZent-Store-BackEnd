@@ -22,7 +22,7 @@ exports.addToCart = async(req,res) => {
         return res.status(400).json({status: false, message: "Provide the Product Id"})  
     }
     try {
-        const isCart = await Cart.exists({product: productId})
+        const isCart = await Cart.exists({user: req._id, product: productId})
         if(isCart) {
             return res.status(400).json({status: false, message: "Product is already in the cart"})
         }
@@ -41,7 +41,7 @@ exports.addToCart = async(req,res) => {
 exports.removeFromCart = async(req,res) => {
     const {productId} = req.params
     try {
-        const isCart = await Cart.exists({product: productId})
+        const isCart = await Cart.exists({user: req._id, product: productId})
         if(!isCart) {
             return res.status(400).json({status: false, message: "Product is not present in the cart"})
         }

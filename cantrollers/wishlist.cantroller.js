@@ -41,7 +41,7 @@ exports.addToWishlist = async(req,res) => {
 exports.removeFromWishlist = async(req,res) => {
     const {productId} = req.params
     try {
-        const isWishlist = await Wishlist.exists({product: productId})
+        const isWishlist = await Wishlist.exists({user: req._id, product: productId})
         if(!isWishlist) {
             return res.status(400).json({status: false, message: "Product is not present in the wishlist"})
         }
