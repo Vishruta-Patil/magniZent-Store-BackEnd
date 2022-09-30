@@ -4,6 +4,7 @@ const Cart = require("../model/cart.model")
 // @route   GET api/cart
 // @access  Private
 exports.getAllProductsFromCart = async(req, res) => {
+    console.log(req._id)
     try {
         const cart = await Cart.find({user: req._id}).populate("product")
         res.json({status: true, message: "Successfully fetched all products from the cart", cart})

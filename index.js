@@ -16,7 +16,7 @@ app.use(cors(corsOptions))
 
 connectDB()
 
-const port = process.env.PORT || 8000
+const port =  8000
 
 app.get("/", (req,res) => {
     res.send("Shree Krishna Govinda Hari Murari Yaenatha Narayan Vasudeva Radhae Radhae")
