@@ -12,11 +12,11 @@ const corsOptions = require("./utils/corsConfig")
 
 const app = express()
 app.use(express.json())
-app.use(cors())
+app.use(cors(corsOptions))
 
 connectDB()
 
-const port =  8000
+const port = process.env.PORT || 8000
 
 app.get("/", (req,res) => {
     res.send("Shree Krishna Govinda Hari Murari Yaenatha Narayan Vasudeva Radhae Radhae")
